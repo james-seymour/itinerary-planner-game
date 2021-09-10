@@ -1,11 +1,18 @@
 import { useState } from 'react'
 
-export default function Game() {
+const Game = (props) => {
     
-  const [gameState, updateGameState] = useState([]) 
+  const [gameState, updateGameState] = useState(0)
   
-  return (  
-    <div>caca</div>
+  return (
+    <>
+    <button onClick={() => updateGameState(prevState => prevState + 1)}></button>
+    <div>
+      Button has {gameState} clicks
+    </div>
+    </>
   )
 
 }
+
+export default Game

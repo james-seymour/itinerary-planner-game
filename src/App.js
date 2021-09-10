@@ -1,5 +1,5 @@
 import './App.css';
-import { Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { ThemeProvider } from "@material-ui/core"
 import { createTheme } from '@material-ui/core/styles';
 import { orange, blue } from '@material-ui/core/colors';
