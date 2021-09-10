@@ -11,9 +11,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function Car() {
-
   const classes = useStyles()
-
   return <div className={classes.car}>deez nuts</div>
 }
 

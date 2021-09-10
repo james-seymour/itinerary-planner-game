@@ -1,26 +1,19 @@
-import React, { Component } from 'react'
-import Car from './Car'
+import React from 'react'
+import { Canvas } from '@react-three/fiber'
 
-class Game extends Component {
-  
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      playerX: 100,
-      playerY: 100,
-      playerDir: 'n',
-      playerCanMove: true
-    };
+function Box() {
+  return (
+    <mesh>
+      <boxBufferGeometry attach="geometry" />
+      <meshLambertMaterial  attach="material" color="hotpink" />
+    </mesh>
+  )
+}
 
-  }
-
-  render() {
-    return <div onKeyDown={this.onKeyDown} tabIndex="0">
-        <Car />
-      </div>
-  }
-
+function Game() {
+  return <Canvas>
+    <Box />
+  </Canvas>
 }
 
 export default Game
