@@ -11,6 +11,11 @@ const budgetRange = [
   { value: "high", label: "High Budget" },
 ]
 
+const currencyOptions = [
+  { value: "AUD", label: "$AUD"},
+  { value: "USD", label: "$USD" }
+]
+
 const InputForm = (props) => {
 
   return (
@@ -21,7 +26,8 @@ const InputForm = (props) => {
         startDate: new Date(),
         endDate: new Date(),
         budgetLevel: "medium",
-        numberOfPeople: "1"
+        numberOfPeople: "1",
+        currency: "AUD"
       }}
     
       validate={(values) => {
@@ -71,6 +77,29 @@ const InputForm = (props) => {
                     budgetRange.map((budgetOption) => (
                       <MenuItem key={budgetOption.value} value={budgetOption.value}>
                         {budgetOption.label}
+                      </MenuItem>
+                    )) 
+                  }
+                </Field>
+                <Field
+                  component={TextField}
+                  name="numPeople"
+                  type="numPeople"
+                  label="Number of People!"
+                />
+                <Field
+                  component={TextField}
+                  name="currency"
+                  type="currency"
+                  label="Choose a currency"
+                  select
+                  margin="normal"
+                  InputLabelProps={{ shrink: true }}
+                >
+                  {
+                    currencyOptions.map((currencyOption) => (
+                      <MenuItem key={currencyOption.value} value={currencyOption.value}>
+                        {currencyOption.label}
                       </MenuItem>
                     )) 
                   }
