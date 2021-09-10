@@ -12,9 +12,9 @@ const InputForm = (props) => {
     
     <Formik
       initialValues= {{
-        destination: "",
-        startDate: new Date(),
-        endDate: new Date(),
+        destination: "Tokyo",
+        startDate: new Date("2022-01-01"),
+        endDate: new Date("2022-01-15"),
         budgetLevel: "medium",
         numberOfPeople: "1",
         currency: "AUD"
