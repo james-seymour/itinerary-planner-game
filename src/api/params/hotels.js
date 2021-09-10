@@ -16,19 +16,32 @@ const getHotelLocationOptions = (destination) => {
   )
 }
 
+const getSortOrder = (budgetLevel) => {  
+  // For sort order, we have a few options but this is probably the best way to do it
+  // This is default for medium. Got these values from API Docs
+  let sortOrder = "BEST_SELLER"
+  if (budgetLevel === "low") {
+    // Sort by price low to high i think 
+    sortOrder = "PRICE"
+  } else if (budgetLevel === "high") {
+    sortOrder = "PRICE_HIGHEST_FIRST"
+  }
+
+  return sortOrder
+}
+
 // Using the location-id from the above request, we can request some hotels in the area
 const hotelListEndpoint = "https://hotels4.p.rapidapi.com/properties/list"
-const getHotelListOptions = (destinationId, startDate, endDate, numPeople, priceLevel) => {
+const getHotelListOptions = (destinationId, startDate, endDate, numPeople, budgetLevel) => {
   return (
     getGenericRapidAPIOptions(baseURL, hotelListEndpoint, {
-      destinationId: destinationID,
+      destinationId: destinationId,
       pageNumber: "1",
       pageSize: "25",
       checkIn: startDate,
       checkOut: endDate,
       adults1: numPeople,
-      // need to find some way to order this
-      // sortOrder: sortOrder
+      sortOrder: getSortOrder(budgetLevel),
       locale: locale,
     })
   )
