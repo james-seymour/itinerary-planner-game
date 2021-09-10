@@ -5,7 +5,6 @@ import getGenericRapidAPIOptions from "./getGenericRapidAPIOptions"
 const baseURL = "hotels4.p.rapidapi.com"
 const locale = "en_US"
 
-
 // Requesting a location from hotels (destination string -> location-id)
 const hotelLocationsEndpoint = "https://hotels4.p.rapidapi.com/locations/search"
 const getHotelLocationOptions = (destination) => {
