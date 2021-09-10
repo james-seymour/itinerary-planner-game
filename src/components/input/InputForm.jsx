@@ -4,14 +4,10 @@ import { MuiPickersUtilsProvider } from "@material-ui/pickers"
 import DateFnsUtils from "@date-io/date-fns/"
 import { KeyboardDatePicker } from "formik-material-ui-pickers"
 import { TextField } from "formik-material-ui"
-
-const budgetRange = [ 
-  { value: "low", label: "Low Budget" },
-  { value: "medium", label: "Mid-range Budget" },
-  { value: "high", label: "High Budget" },
-]
+import components from "./input_components/components"
 
 const InputForm = (props) => {
+  const { Destination, StartDate, EndDate, Budget, People, Currency } = components
 
   return (
     
@@ -21,7 +17,8 @@ const InputForm = (props) => {
         startDate: new Date(),
         endDate: new Date(),
         budgetLevel: "medium",
-        numberOfPeople: "1"
+        numberOfPeople: "1",
+        currency: "AUD"
       }}
     
       validate={(values) => {
@@ -40,41 +37,12 @@ const InputForm = (props) => {
           <Collapse in={!isSubmitting}>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <Form>
-                <Field
-                  component={TextField}
-                  name="destination"
-                  type="destination"
-                  label="Destination!"
-                />
-                <Field
-                  component={KeyboardDatePicker}
-                  name="startDate"
-                  type="startDate"
-                  label="Starting Date!"
-                />
-                <Field
-                  component={KeyboardDatePicker}
-                  name="endDate"
-                  type="endDate"
-                  label="Ending Date!"
-                />
-                <Field
-                  component={TextField}
-                  name="budgetLevel"
-                  type="budgetLevel"
-                  label="Choose a budget!"
-                  select
-                  margin="normal"                      
-                  InputLabelProps={{ shrink: true }}
-                >
-                  {
-                    budgetRange.map((budgetOption) => (
-                      <MenuItem key={budgetOption.value} value={budgetOption.value}>
-                        {budgetOption.label}
-                      </MenuItem>
-                    )) 
-                  }
-                </Field>
+                <Destination />
+                <StartDate />
+                <EndDate />
+                <Budget />
+                <People />
+                <Currency />
                 <Button
                   variant="contained"
                   disable={isSubmitting}
