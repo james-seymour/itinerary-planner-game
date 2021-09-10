@@ -10,7 +10,9 @@ function Box() {
   )
 }
 
-function Game() {
+function Game(props) {
+
+  console.log(props.APIData)
   return (
     <Canvas>
       <Box />

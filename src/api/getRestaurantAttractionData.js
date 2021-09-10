@@ -1,7 +1,17 @@
 import axios from "axios"
 
-const getRestaurantAttractionData = () => {
-  return
+const getRestaurantAttractionData = (values, APIData, setRedirect) => {
+    
+
+
+
+
+
+
+
+
+
+
 }
 
 export default getRestaurantAttractionData

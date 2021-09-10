@@ -1,7 +1,7 @@
 import axios from "axios"
 
 
-const getHotelsData = () => {
+const getHotelsData = (values, APIData, setRedirect) => {
   return 'yeeet'
 }
 
