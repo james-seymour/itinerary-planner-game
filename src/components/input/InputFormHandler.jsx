@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Redirect } from "react-router-dom"
 import InputForm from "./InputForm"
-
+import { createBrowserHistory } from "history"
 
 
 const InputFormHandler = (props) => {
@@ -16,6 +16,7 @@ const InputFormHandler = (props) => {
   }
 
   if (redirect) {
+    createBrowserHistory().push("/")
     return <Redirect to="/game" />
   }
   return (
