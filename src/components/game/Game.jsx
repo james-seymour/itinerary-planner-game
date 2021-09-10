@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Car from './Car'
 
 const Game = (props) => {
     
@@ -10,6 +11,7 @@ const Game = (props) => {
     <div>
       Button has {gameState} clicks
     </div>
+    <Car />
     </>
   )
 

@@ -1,11 +1,22 @@
 import React from 'react'
-import { Rectangle } from 'react-shapes'
 
-export default function Car() {
+function Car(props) {
 
-    return (
-        <div>
-            <Rectangle width={100} height={100} fill={{color:"red"}} />
-        </div>
-    )
+  const styles = {
+    rectangle: {
+      width: '50px',
+      height: '50px',
+      color: 'red'
+    }
+  }
+
+  return (
+    <div>
+        <div style={styles.rectangle}></div>
+    </div>
+  )
 }
+
+
+
+export default Car
