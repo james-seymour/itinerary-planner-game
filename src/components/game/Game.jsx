@@ -1,19 +1,25 @@
-import { useState } from 'react'
-import Car from './Car'
+import React, { Component } from 'react'
 
-const Game = (props) => {
-    
-  const [gameState, updateGameState] = useState(0)
+class Game extends Component {
   
-  return (
-    <>
-    <button onClick={() => updateGameState(prevState => prevState + 1)}></button>
-    <div>
-      Button has {gameState} clicks
-    </div>
-    <Car />
-    </>
-  )
+  constructor(props) {
+
+    this.state = {
+      playerX: 100,
+      playerY: 100,
+      playerWidth: 10,
+      playerHeight: 10,
+      playerDir: 'n',
+      playerCanMove: true
+    };
+    
+  }
+
+  render() {
+    return <div onKeyDown={this.onKeyDown} tabIndex="0">
+
+      </div>
+  }
 
 }
 
