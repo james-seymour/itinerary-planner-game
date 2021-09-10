@@ -32,7 +32,7 @@ const InputForm = (props) => {
 
       onSubmit={(values, {setSubmitting}) => {
         setSubmitting = false
-        // GET API DATA HERE
+        props.submitForm(values)
       }}
     >
       {({submitForm, isSubmitting, touched, errors}) => (
