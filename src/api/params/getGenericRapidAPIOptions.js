@@ -1,5 +1,5 @@
 
-export default function getGenericRapidAPIOptions(baseURL, endpointURL, params) {
+const getGenericRapidAPIOptions = (baseURL, endpointURL, params) => {
   return ({
     method: "GET",
     url: endpointURL,
@@ -10,3 +10,5 @@ export default function getGenericRapidAPIOptions(baseURL, endpointURL, params) 
     }
   })
 }
+
+export default getGenericRapidAPIOptions

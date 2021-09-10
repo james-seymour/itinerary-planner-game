@@ -54,3 +54,6 @@ const getAttractionOptions = (latitude, longitude, currency) => {
     })
   )
 }
+
+
+export { getTravelLocationOptions, getRestaurantOptions, getAttractionOptions }

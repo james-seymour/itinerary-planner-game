@@ -13,8 +13,6 @@ const InputFormHandler = (props) => {
     const parsedValues = filterInputData(values)
     // Parent callback function to handle values before redirecting
     // TODO: GET API DATA HERE
-    // VALUES UPDATED HERE WORKS
-    console.log(parsedValues)
     // console.log(getTravelLocationOptions("tokyo"))
     setRedirect(true)
   }

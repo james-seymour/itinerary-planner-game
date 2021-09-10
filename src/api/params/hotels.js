@@ -55,3 +55,6 @@ const getHotelDetailsOptions = (hotelIds, startDate, endDate, numPeople, currenc
     }))
   )
 }
+
+
+export { getHotelLocationOptions, getHotelListOptions, getHotelDetailsOptions }
