@@ -38,10 +38,10 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <InputFormHandler />
+            <InputFormHandler APIData={APIData}/>
           </Route>
           <Route exact path="/game">
-            <Game />
+            <Game APIData={APIData}/>
           </Route>
         </Switch>
       </Router>

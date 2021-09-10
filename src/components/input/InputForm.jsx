@@ -22,11 +22,11 @@ const InputForm = (props) => {
     
       validate={(values) => {
         const errors = {}
-        if (!values.destination) { errors.destination = "Destination Required" }
-        if (!values.startDate || isBefore(values.startDate, new Date())) { errors.startDate = "Enter a valid starting date"}
-        if (!values.endDate || isBefore(values.endDate, new Date())) {errors.endDate = "Enter a valid ending date"}
-        if (isBefore(values.endDate, values.startDate) || isEqual(values.endDate, values.startDate)) {errors.endDate = "Enter a valid range of dates"}
-        if (values.numberOfPeople < 1 || values.numberOfPeople > 4 || isInt(values.numberOfPeople)) {errors.numberOfPeople = "Enter a valid number of people (1-4)"}
+        // if (!values.destination) { errors.destination = "Destination Required" }
+        // if (!values.startDate || isBefore(values.startDate, new Date())) { errors.startDate = "Enter a valid starting date"}
+        // if (!values.endDate || isBefore(values.endDate, new Date())) {errors.endDate = "Enter a valid ending date"}
+        // if (isBefore(values.endDate, values.startDate) || isEqual(values.endDate, values.startDate)) {errors.endDate = "Enter a valid range of dates"}
+        // if (values.numberOfPeople < 1 || values.numberOfPeople > 4 || isInt(values.numberOfPeople)) {errors.numberOfPeople = "Enter a valid number of people (1-4)"}
         return errors
       }}
 
