@@ -11,9 +11,11 @@ function Box() {
 }
 
 function Game() {
-  return <Canvas>
-    <Box />
-  </Canvas>
+  return (
+    <Canvas>
+      <Box />
+    </Canvas>
+  )
 }
 
 export default Game
