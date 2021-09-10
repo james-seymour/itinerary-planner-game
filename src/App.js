@@ -3,8 +3,8 @@ import { Router, Switch, Route } from "react-router-dom"
 import { ThemeProvider } from "@material-ui/core"
 import { createTheme } from '@material-ui/core/styles';
 import { orange, blue } from '@material-ui/core/colors';
-import { Game } from "./components/game/Game"
-import { InputForm } from "./components/input/InputForm"
+import Game from "./components/game/Game"
+import InputForm from "./components/input/InputForm"
 
 
 const theme = createTheme({
@@ -27,8 +27,7 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" /> 
       <Router>
         <Switch>
           <Route exact path="/">
