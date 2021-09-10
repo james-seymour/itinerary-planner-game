@@ -3,7 +3,6 @@ import { Field, Form, Formik } from "formik"
 import { MuiPickersUtilsProvider } from "@material-ui/pickers"
 import DateFnsUtils from "@date-io/date-fns/"
 import { KeyboardDatePicker } from "formik-material-ui-pickers"
-import "@fontsource/roboto"
 import { TextField } from "formik-material-ui"
 
 const budgetRange = [ 
@@ -27,6 +26,7 @@ const InputForm = (props) => {
     
       validate={(values) => {
         const errors = {}
+        // ADD SOME FORM VALIDATION HERE
         return errors
       }}
 
@@ -92,12 +92,6 @@ const InputForm = (props) => {
           </Collapse>
         </>
       )}
-
-
-
-
-
-
     </Formik>
   )
 

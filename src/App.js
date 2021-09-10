@@ -4,7 +4,7 @@ import { ThemeProvider } from "@material-ui/core"
 import { createTheme } from '@material-ui/core/styles';
 import { orange, blue } from '@material-ui/core/colors';
 import Game from "./components/game/Game"
-import InputForm from "./components/input/InputForm"
+import InputFormHandler from './components/input/InputFormHandler';
 
 
 const theme = createTheme({
@@ -17,7 +17,7 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontSize: 20,
+    fontSize: 14,
     fontFamily: [
       "Roboto",
     ]
@@ -31,7 +31,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <InputForm />
+            <InputFormHandler />
           </Route>
           <Route exact path="/game">
             <Game />
