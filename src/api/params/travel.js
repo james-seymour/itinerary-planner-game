@@ -3,7 +3,6 @@ import getGenericRapidAPIOptions from "./getGenericRapidAPIOptions"
 const baseURL = "travel-advisor.p.rapidapi.com"
 const language = "en_US"
 const units = "km"
-const currency = "AUD"
 
 // These definitely subject to change
 const itemLimit = "10"
@@ -24,7 +23,7 @@ const getTravelLocationOptions = (destination) => {
 
 // Getting restaurants using lat,long
 const restaurantsEndpoint = "https://travel-advisor.p.rapidapi.com/restaurants/list-by-latlng"
-const getRestaurantOptions = (latitude, longitude) => {
+const getRestaurantOptions = (latitude, longitude, currency) => {
   return (
     getGenericRapidAPIOptions(baseURL, restaurantsEndpoint, {
       // Required
@@ -42,7 +41,7 @@ const getRestaurantOptions = (latitude, longitude) => {
 
 // Getting attractions using lat,long
 const attractionsEndpoint = "https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng"
-const getAttractionOptions = (latitude, longitude) => {
+const getAttractionOptions = (latitude, longitude, currency) => {
   return (
     getGenericRapidAPIOptions(baseURL, attractionsEndpoint, {
       latitude: latitude,

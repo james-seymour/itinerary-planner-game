@@ -4,7 +4,6 @@ import getGenericRapidAPIOptions from "./getGenericRapidAPIOptions"
 // THESE VALUES TAKEN FROM RAPIDAPI SITE ON HOW TO REQUEST HOTELS API
 const baseURL = "hotels4.p.rapidapi.com"
 const locale = "en_US"
-const currency = "AUD"
 
 
 // Requesting a location from hotels (destination string -> location-id)
@@ -40,7 +39,7 @@ const getHotelListOptions = (destinationId, startDate, endDate, numPeople, price
 // Combining this into a single options object coz it makes more sense
 const hotelDetailsEndpoint = "https://hotels4.p.rapidapi.com/properties/get-details"
 const hotelPhotoEndpoint = "https://hotels4.p.rapidapi.com/properties/get-hotel-photos"
-const getHotelDetailsOptions = (hotelIds, startDate, endDate, numPeople) => {
+const getHotelDetailsOptions = (hotelIds, startDate, endDate, numPeople, currency) => {
   return (
     hotelIds.map((hotelId, index) => ({
       details: getGenericRapidAPIOptions(baseURL, hotelDetailsEndpoint, {
