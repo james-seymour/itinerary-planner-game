@@ -12,11 +12,9 @@ function Car(props) {
 
   return (
     <div>
-        <div style={styles.rectangle}></div>
+        <div class={styles.rectangle}></div>
     </div>
   )
 }
-
-
 
 export default Car
