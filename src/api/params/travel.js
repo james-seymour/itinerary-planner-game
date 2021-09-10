@@ -27,10 +27,31 @@ const restaurantsEndpoint = "https://travel-advisor.p.rapidapi.com/restaurants/l
 const getRestaurantOptions = (latitude, longitude) => {
   return (
     getGenericRapidAPIOptions(baseURL, restaurantsEndpoint, {
-
+      // Required
+      latitude: latitude,
+      longitude: longitude,
+      // Optional
+      // Could change this current to an input
+      currency: currency,
+      open_now: "false",
+      lunit: units,
+      lang: language,
     })
   )
 }
 
-
-export default getTravelLocationOptions
+// Getting attractions using lat,long
+const attractionsEndpoint = "https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng"
+const getAttractionOptions = (latitude, longitude) => {
+  return (
+    getGenericRapidAPIOptions(baseURL, attractionsEndpoint, {
+      latitude: latitude,
+      longitude: longitude,
+      // Same thing here as above in restaurant
+      lunit: units,
+      currency: currency,
+      lang: language,
+      distance: maxRadius,
+    })
+  )
+}
