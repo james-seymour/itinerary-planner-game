@@ -6,17 +6,6 @@ import { KeyboardDatePicker } from "formik-material-ui-pickers"
 import { TextField } from "formik-material-ui"
 import components from "./input_components/components"
 
-const budgetRange = [ 
-  { value: "low", label: "Low Budget" },
-  { value: "medium", label: "Mid-range Budget" },
-  { value: "high", label: "High Budget" },
-]
-
-const currencyOptions = [
-  { value: "AUD", label: "$AUD"},
-  { value: "USD", label: "$USD" }
-]
-
 const InputForm = (props) => {
   const { Destination, StartDate, EndDate, Budget, People, Currency } = components
 
