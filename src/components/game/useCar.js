@@ -101,7 +101,7 @@ const useCar = () => {
       update()
       
 
-    }, 3000)
+    }, 1000 / 60)
     
     return function cleanup() {
       clearInterval(interval)

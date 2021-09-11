@@ -69,9 +69,9 @@ function App() {
           <Route exact path="/testing">
           </Route>
           <Route exact path="/game">
-            <Info visibility={visibility} APIData={APIData}/>
             {/* setVibility gets passed in here for Game to update */}
-            <GameWrapper setVisibility={setVisibility}/>
+            <GameWrapper visibility={visibility} setVisibility={setVisibility}/>
+            <Info visibility={visibility} APIData={APIData}/>
           </Route>
         </Switch>
       </Router>

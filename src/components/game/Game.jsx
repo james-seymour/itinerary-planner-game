@@ -3,13 +3,51 @@ import { useWindowDimensions } from "./useWindowSize"
 import Canvas from "./Canvas"
 import backgroundImage from "./img/backgroundtest.jpg"
 
-const Game = ({ classes }) => {
+
+const showCards = (carPosition, visibility, setVisibility, viewWidth) => {
+
+  // if (carPosition < 1000 && !visibility.attractions) {
+  //   setVisibility.attractions(true)
+  // } else if (carPosition > 1000 && visibility.attractions) {
+  //   setVisibility.attractions(false)
+  // }
+
+  // if (carPosition < 1000 && !visibility.flights) {
+  //   setVisibility.flights(true)
+  // } else if (carPosition > 1000 && visibility.flights) {
+  //   setVisibility.flights(false)
+  // }
+  console.log(carPosition)
+  const hotelsLowerBound = 39 * viewWidth
+  const hotelsUpperBound = 55 * viewWidth
+  if (carPosition > hotelsLowerBound && carPosition < hotelsUpperBound && !visibility.hotels) {
+    setVisibility.hotels(true)
+  } else if (carPosition < hotelsLowerBound || carPosition > hotelsUpperBound && visibility.hotels) {
+    setVisibility.hotels(false)
+  }
+
+  if (carPosition > 1600 && carPosition < 2100 && !visibility.restaurants) {
+    setVisibility.restaurants(true)
+  } else if (carPosition < 1600 || carPosition > 2100 && visibility.restaurants) {
+    setVisibility.restaurants(false)
+  }
+ 
+  // if (carPosition < 1000 && !visibility.weather) {
+  //   setVisibility.weather(true)
+  // } else if (carPosition > 1000 && visibility.weather) {
+  //   setVisibility.weather(false)
+  // }
+
+}
+
+const Game = ({ visibility, setVisibility, classes }) => {
   const { car, canvasRef } = useCar()
   const { windowHeight, windowWidth } = useWindowDimensions()
-  
-  const Scene = ({ car, dimensions }) => {
 
-    // const moreClasses = useMoreStyles()
+  const viewWidth = window.innerWidth / 100
+  showCards(Math.abs(car.x), visibility, setVisibility, viewWidth)
+
+  const Scene = ({ car, dimensions }) => {
 
     return (
       <>

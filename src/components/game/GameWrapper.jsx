@@ -2,7 +2,10 @@ import Car from "./Car"
 import Game from "./Game"
 import { makeStyles } from "@material-ui/core"
 
-const GameWrapper = () => {
+const GameWrapper = ({ visibility, setVisibility }) => {
+
+  console.log(visibility, setVisibility)
+
   const useStyles = makeStyles((theme) => ({
     canvas: {
       position: "absolute",
@@ -33,7 +36,7 @@ const GameWrapper = () => {
 
   return (
     <>
-      <Game classes={classes}/>
+      <Game visibility={visibility} setVisibility={setVisibility} classes={classes}/>
       <Car />
     </>
   )
