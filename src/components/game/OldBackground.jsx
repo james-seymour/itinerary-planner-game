@@ -5,7 +5,7 @@ import { auto } from "async"
 
 const Background = (props) => {
 
-  const [pos, setPos] = useState(100)
+  const [pos, setPos] = useState(0)
   const [vel, setVel] = useState(0)
   const [acc, setAcc] = useState(0)
   const [tick, setTick] = useState(0)
@@ -27,6 +27,10 @@ const Background = (props) => {
       move(-1)
     }
   }
+
+  useEffect(() => {
+    document.getElementById("background").focus()
+  }, [])
   
   const slowDown = (event) => {
     if (vel !== 0) {
@@ -49,7 +53,10 @@ const Background = (props) => {
   }))
 
   const move = (value) => {
+    const newPos = pos + vel + value
     setPos(prevPos => prevPos + vel + value)
+
+    //Edit velocity
     if (value == -1 && vel > -5) {
       setVel(prevVel => prevVel + value)
     }
@@ -60,12 +67,16 @@ const Background = (props) => {
 
   const classes = useStyles()
 
-  return <img src={background} 
-            className={classes.background} 
-            onKeyDown={keyPressed} 
-            onKeyUp={slowDown}
-            tabIndex="0"
-            />;
+  return (
+    <img
+      id="background"
+      src={background} 
+      className={classes.background} 
+      onKeyDown={keyPressed} 
+      onKeyUp={slowDown}
+      tabIndex="0"
+    />
+  )
 }
 
 export default Background
