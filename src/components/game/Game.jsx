@@ -34,12 +34,24 @@ class Game extends Component {
     console.log(this.state.playerVel)
   }
 
+  componentDidMount() {
+    
+  }
+
+  update() {
+    
+  }
+
   render() {
     return <div
             onKeyDown={this.onKeyDown}
             tabIndex="0">
             <Car />
           </div>
+  }
+
+  moveCar() {
+    
   }
 }
 
