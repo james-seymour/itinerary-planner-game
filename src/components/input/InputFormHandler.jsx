@@ -37,7 +37,7 @@ const InputFormHandler = ({ APIData }) => {
   const allAPISLoaded = travelAdvisorRedirect && hotelsRedirect && weatherRedirect
   if (allAPISLoaded) {
     createBrowserHistory().push("/")
-    return <Redirect to="/testing" />
+    return <Redirect to="/game" />
   }
   return (
     <InputForm submitForm={handleFormSubmitted}/> 

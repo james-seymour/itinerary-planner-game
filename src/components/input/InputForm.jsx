@@ -24,7 +24,6 @@ const InputForm = (props) => {
   return (
     <Card className={classes.card}>
       <CardHeader className={classes.forminput} title="Itinerary Planner Game" subheader="Fill out the form below with your travel details!" />
-
       <Formik
         initialValues= {{
           destination: "Tokyo",
@@ -86,9 +85,11 @@ const InputForm = (props) => {
               </MuiPickersUtilsProvider>
             </Collapse>
             {/* LOADING ANIMATION BELOW */}
-            <Collapse>
+            <Box className={classes.forminput} margin={4}>
+            <Collapse in={isSubmitting} >
               <CircularProgress />
             </Collapse>
+            </Box>
           </>
         )}
       </Formik>

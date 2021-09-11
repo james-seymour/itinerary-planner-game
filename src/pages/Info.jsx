@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from "react"
 import components from '../components/cards/components'
 import filterAPIData from '../tools/filterAPIData'
 import ScriptTag from "react-script-tag"
@@ -7,7 +7,7 @@ import { Box, makeStyles } from '@material-ui/core'
 
 
 
-const Info = ({ APIData }) => {
+const Info = ({ visibility, APIData }) => {
   
   const useStyles = makeStyles((theme) => ({
   position: {
@@ -25,11 +25,11 @@ const Info = ({ APIData }) => {
   return (
     <div>
       <ScriptTag type="text/javascript" src="https://widgets.skyscanner.net/widget-server/js/loader.js" />
-      {/* <Attractions posx={200} posy={200} visible={true} data={data}/> */}
-      <Flights posx={200} posy={100} visible={true} data={data} />
-      {/* <Hotels posx={100} posy={100} visible={true} data={data}/> */}
-      {/* <Restaurants posx={100} posy={100} visible={true} data={data}/> */}
-      {/* <Weather posx={100} posy={100} visible={true} data={data} /> */}
+      <Attractions posx={100} posy={200} visible={visibility.attractions} data={data}/>
+      <Flights posx={100} posy={100} visible={visibility.flights} data={data} />
+      <Hotels posx={100} posy={100} visible={visibility.hotels} data={data}/>
+      <Restaurants posx={100} posy={100} visible={visibility.restaurants} data={data}/>
+      <Weather posx={100} posy={100} visible={visibility.weather} data={data} />
       {/* <Map data={data}/> */}
     </div>
   )
