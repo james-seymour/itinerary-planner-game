@@ -1,7 +1,8 @@
 import Attractions from "./Attractions";
 import Flights from "./Flights";
-import Hotel from "./Hotel";
+import Hotels from "./Hotels";
 import Restaurants from "./Restaurants";
 import Weather from "./Weather";
 import Map from "./Map"
-export default { Attractions, Flights, Hotel, Restaurants, Weather, Map }
+import HotelsWidget from "./HotelsWidget";
+export default { Attractions, Flights, Hotels, Restaurants, Weather, Map, HotelsWidget }

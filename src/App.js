@@ -1,5 +1,5 @@
 import './App.css';
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { ThemeProvider } from "@material-ui/core"
 import { createTheme } from '@material-ui/core/styles';
@@ -32,6 +32,30 @@ function App() {
   // We can pass through this ref to the input form for when the API data is collected and update there
   // Then, on redirect, the Game can read the saved data
   const APIData = useRef({})
+  const [attractionVisibility, setAttractionVisibility] = useState(false)
+  const [flightsVisibility, setFlightsVisibility] = useState(false)
+  const [hotelsVisibility, setHotelsVisibility] = useState(false)
+  const [restaurantVisibility, setRestaurantVisibility] = useState(false)
+  const [weatherVisibility, setWeatherVisibility] = useState(false)
+  const [mapVisibility, setMapVisibility] = useState(false)
+
+  const visibility = { 
+    attractions: attractionVisibility, 
+    flights: flightsVisibility,
+    hotels: hotelsVisibility,
+    restaurants: restaurantVisibility,
+    weather: weatherVisibility,
+    map: mapVisibility,  
+  }
+
+  const setVisibility = {
+    attractions: setAttractionVisibility,
+    flights: setFlightsVisibility,
+    hotels: setHotelsVisibility,
+    restaurants: setRestaurantVisibility,
+    weather: setWeatherVisibility,
+    map: setMapVisibility,
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -42,9 +66,10 @@ function App() {
             <InputFormHandler APIData={APIData}/>
           </Route>
           <Route exact path="/testing">
-            <Info APIData={APIData}/>
           </Route>
           <Route exact path="/game">
+            <Info visibility={visibility} APIData={APIData}/>
+            {/* setVibility gets passed in here for Game to update */}
             <Game APIData={APIData}/>
           </Route>
         </Switch>

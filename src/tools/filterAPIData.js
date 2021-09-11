@@ -1,4 +1,4 @@
-
+import { format } from "date-fns"
 
 const filterRestaurants = (restaurants, priceLevel) => {
 
@@ -33,9 +33,10 @@ const filterRestaurants = (restaurants, priceLevel) => {
     restaurantData.push({
       name: r.name,
       // TODO: check photo size and specify here
-      // photo: r.photo.fiosjkdof
+      photo: r.photo.images.medium.url,
       price_level: r.price_level,
       price_num: r.price_num,
+      distance: parseFloat(r.distance).toFixed(2),
       rating: r.rating,
       rankingPosition: r.ranking_position,
       address: r.address,
@@ -71,7 +72,9 @@ const filterAttractions = (attractions) => {
   for (let a of filteredAttractions) {
     attractionData.push({
       name: a.name,
-      // photo: aposkd
+      distance: parseFloat(a.distance).toFixed(2),
+      awards: a.awards[0] !== undefined ? a.awards[0].display_name : "No Awards Found", 
+      photo: a.photo.images.medium.url,
       rating: a.rating,
       rankingPosition: a.ranking_position,
       address: a.address,
@@ -88,8 +91,9 @@ const filterAttractions = (attractions) => {
 const filterWeatherHistory = (weatherHistory) => {
   let filteredWeatherHistory = []
   for (let day of weatherHistory) {
+    const date = new Date(day.date)
     filteredWeatherHistory.push({
-      date: day.date,
+      date: format(date, "PP"),
       precip: day.prcp,
       snow: day.snow,
       averageTemp: day.tavg,
@@ -133,7 +137,7 @@ const filterAPIData = (APIData) => {
     hotels: filterHotels(APIData.hotels),
     restaurants: filterRestaurants(APIData.restaurants, APIData.priceLevel),
     attractions: filterAttractions(APIData.attractions),
-    weather: filterWeatherHistory(APIData.weatherHistory),
+    weatherHistory: filterWeatherHistory(APIData.weatherHistory),
     weatherCondition: filterWeatherCondition(APIData.weatherCondition),
   })
 }

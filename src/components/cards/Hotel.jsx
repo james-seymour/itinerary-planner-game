@@ -4,8 +4,13 @@ import { Rating } from "@material-ui/lab"
 import HotelImageCarousel from "./HotelImageCarousel"
 
 const useStyles = makeStyles((theme) => ({
+  wrapper: {
+    width: "25vw",
+    margin: "auto",
+  },
   card: {
-    maxWidth: "25vw",
+    width: "25vw",
+    margin: "auto",
   },
   photo: {
     paddingTop: "56.25%"
@@ -40,11 +45,9 @@ const parseHotel = (hotel) => {
   }  
 }
 
-const Hotel = ({ data }) => {
+const Hotel = ({ hotel }) => {
   const classes = useStyles()
-
-  const { hotels } = data
-  const values = parseHotel(hotels[6])
+  const values = parseHotel(hotel)
   if (values === undefined) {
     return (<div> </div>)
   }
@@ -53,34 +56,35 @@ const Hotel = ({ data }) => {
   // Change 0 in hotel below for a for loop
 
   return (
-    <Card className={classes.card}>
-      <CardMedia>
-        <HotelImageCarousel photos={photos} />
-      </CardMedia>
-      <CardHeader 
-        title={hotelName}
-        action={
-          <Rating 
-            className={classes.rating}
-            name="read-only" 
-            value={rating} 
-            readOnly
-          />
-        }
-      /> 
-      <Divider variant="middle"/>
-      <CardContent className={classes.content}>
-        <Typography gutterBottom variant="body1" component="h2">
-          {`${address} - ${price}/night`}
-        </Typography>
-        <Typography variant="body2">
-          {checkIn}
-        </Typography>
-        <Typography variant="body2">
-          {healthAndSafety}
-        </Typography>
-      </CardContent>
-    </Card>
+      <Card className={classes.card}>
+        <CardMedia>
+          <HotelImageCarousel photos={photos} />
+        </CardMedia>
+        <CardHeader 
+          title={hotelName}
+          subheader={address}
+          action={
+            <Rating 
+              className={classes.rating}
+              name="read-only" 
+              value={rating} 
+              readOnly
+            />
+          }
+        /> 
+        <Divider variant="middle"/>
+        <CardContent className={classes.content}>
+          <Typography gutterBottom variant="body1" component="h2">
+            {`${price}/night`}
+          </Typography>
+          <Typography variant="body2">
+            {checkIn}
+          </Typography>
+          <Typography variant="body2">
+            {healthAndSafety}
+          </Typography>
+        </CardContent>
+      </Card>
   )
 }
 

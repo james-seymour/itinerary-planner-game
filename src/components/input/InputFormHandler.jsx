@@ -26,6 +26,7 @@ const InputFormHandler = ({ APIData }) => {
     // THis is the response we get from the API saved to file
     Object.assign(APIData, tokyoResponse)
     Object.assign(APIData.current, parsedValuesIn)
+    console.log(APIData)
 
     // Parent callback function to handle values before redirecting
     setTravelAdvisorRedirect(true)
@@ -36,7 +37,7 @@ const InputFormHandler = ({ APIData }) => {
   const allAPISLoaded = travelAdvisorRedirect && hotelsRedirect && weatherRedirect
   if (allAPISLoaded) {
     createBrowserHistory().push("/")
-    return <Redirect to="/testing" />
+    return <Redirect to="/game" />
   }
   return (
     <InputForm submitForm={handleFormSubmitted}/> 
