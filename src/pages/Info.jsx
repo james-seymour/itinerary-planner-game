@@ -7,16 +7,16 @@ const Info = ({ APIData }) => {
   const data = filterAPIData(APIData.current)
   console.log(data)
 
-  const { Attractions, Flights, Hotels, Restaurants, Weather, Map } = components
+  const { Attractions, Flights, Hotel, Restaurants, Weather, Map } = components
   return (
     <div>
       <ScriptTag type="text/javascript" src="https://widgets.skyscanner.net/widget-server/js/loader.js" />
-      <Attractions data={data}/>
-      <Flights data={data} />
-      <Hotels data={data}/>
-      <Restaurants data={data}/>
-      <Weather data={data} />
-      <Map data={data}/>
+      {/* <Attractions data={data}/> */}
+      {/* <Flights data={data} /> */}
+      <Hotel data={data}/>
+      {/* <Restaurants data={data}/> */}
+      {/* <Weather data={data} /> */}
+      {/* <Map data={data}/> */}
     </div>
   )
 }

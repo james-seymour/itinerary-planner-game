@@ -1,0 +1,33 @@
+.carousel-slider {
+	overflow: visible !important;
+}
+
+.control-dots {
+	bottom: -3rem !important;
+}
+
+.carousel-status {
+	display: none !important;
+}
+
+.slider-wrapper {
+	border-radius: 1rem;
+}
+
+.slider {
+	border-radius: 1rem;
+}
+
+.slide{
+	border-radius: 1rem;
+	background: transparent !important;
+}
+
+
+.control-next {
+	border-radius: 0rem 1rem 1rem 0rem;
+}
+
+.control-prev {
+	border-radius: 1rem 0rem 0rem 1rem;
+}
