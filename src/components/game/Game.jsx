@@ -1,19 +1,13 @@
-import React from 'react'
-import { Canvas } from '@react-three/fiber'
+import React, { Component } from 'react'
 
-function Box() {
-  return (
-    <mesh>
-      <boxBufferGeometry attach="geometry" />
-      <meshLambertMaterial  attach="material" color="hotpink" />
-    </mesh>
-  )
-}
-
-function Game() {
-  return <Canvas>
-    <Box />
-  </Canvas>
+class Game extends Component {
+  render() {
+    return (
+      <div>
+        
+      </div>
+    )
+  }
 }
 
 export default Game
