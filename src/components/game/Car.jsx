@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Car() {
   const classes = useStyles()
-  return <div className={classes.car}>deez nuts</div>
+  return <div className={classes.car}></div>
 }
 
 export default Car
