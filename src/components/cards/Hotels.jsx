@@ -7,15 +7,20 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: "45vw"
+    maxWidth: "30vw",
+    margin: "auto",
   },
   wrapper: {
     padding: "10rem",
-    width: "45vw",
+    width: "35vw",
+    margin: "auto",
+  },
+  header: {
+    textAlign: "center",
   },
   card: {
     boxShadow: "none",
-    maxWidth: "40vw",
+    maxWidth: "35vw",
     margin: "auto",
   },
   photo: {
@@ -34,12 +39,13 @@ const useStyles = makeStyles((theme) => ({
 
 const Hotels = ({ data }) => {
 
-  const { hotels } = data
+  const { destination, hotels } = data
   const classes = useStyles()
 
   return (
     <>
     <Card className={classes.root}>
+      <CardHeader className={classes.header} title={`Hotels in ${destination}`}/>
       <CardContent>
       <Carousel showThumbs={false}>
         {
@@ -53,6 +59,13 @@ const Hotels = ({ data }) => {
         }
       </Carousel>
       </CardContent>
+      <Divider variant="middle" />
+      <Box p={4}>
+        <CardHeader 
+          title="Couldn't find what you're looking for?"
+          subheader="Search for hotels yourself below! (This might take a while to load)"
+        />
+      </Box>
       <CardContent>
         <HotelsWidget data={data} />
       </CardContent>
