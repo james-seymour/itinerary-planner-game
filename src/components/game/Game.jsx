@@ -1,48 +1,72 @@
-import React, { Component } from 'react'
-import Car from './Car'
-import Background from './Background'
+import useCar from "./useCar"
+import { useWindowDimensions } from "./useWindowSize"
+import Canvas from "./Canvas"
+import { makeStyles } from "@material-ui/core"
+import backgroundImage from "./img/backgroundtest.jpg"
 
-class Game extends Component {
-
-  constructor(props) {
-    super(props);
-
-    //Game state variables
-    this.state = {
-      playerX: 0,
-      playerVel: 0,
-      playerDir: 1, // 0 = left, 1 = right
-      playerMoving: false,
-    };
-
-    //Bind all necessary function callbacks so
-    //that they are called correctly
-    this.onKeyDown = this.onKeyDown.bind(this);
-  }
-
-  //Handle constant key press
-  onKeyDown(e) {
-    switch(e.key) {
-      case "a":
-      case "ArrowLeft":
-        if (Math.abs(this.state.playerVel) < 5) this.state.playerVel += 0.5;
-        break;
-      case "d":
-      case "ArrowRight":
-        if (Math.abs(this.state.playerVel) < 5) this.state.playerVel += -0.5;
-        break;
+const Car = () => {
+  const { car, canvasRef } = useCar()
+  const { windowHeight, windowWidth } = useWindowDimensions()
+    
+  
+  const useStyles = makeStyles((theme) => ({
+    canvas: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+    },
+    scene: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+    },
+    car: {
+      width: 1000,
+      height: "100vh",
+      position: "absolute",
+      backgroundSize: "contain",
+      willChange: "transform",
+    },
+    image: {
+      willChange: "transform",
+      height: "97vh",
     }
-    console.log(this.state.playerVel)
-  }
+  }))
 
-  render() {
-    return <div
-            tabIndex="0">
-            <Car />
-            <Background />
+  const classes = useStyles()
+
+  const Scene = ({ car, dimensions }) => {
+
+
+    // const moreClasses = useMoreStyles()
+
+    return (
+      <>
+        <div className={classes.scene}>
+          <div className={classes.car}>
+            <img className={classes.image} style={{ transform: car.styles }} src={backgroundImage}></img>
           </div>
+        </div>
+      </>
+    )
   }
 
+  return (
+    <div>
+      <Canvas 
+        canvasRef={canvasRef}
+        className={classes.canvas}
+        width={windowWidth || 500}
+        height={windowHeight || 500}
+      />
+      <Scene
+        car={car}
+        dimensions={{ height: windowHeight, width: windowWidth }}
+      />
+    </div>
+  )
 }
 
-export default Game
+export default Car

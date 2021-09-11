@@ -20,8 +20,8 @@ const useCar = () => {
 
   let initialCar = {
     styles: "",
-    x: 100,
-    y: 400,
+    x: 0,
+    y: 0,
     velocity: 0,
     power: 0,
     reverse: 0,
@@ -101,7 +101,7 @@ const useCar = () => {
       update()
       
 
-    }, 1000 / 60)
+    }, 1000 / 100)
     
     return function cleanup() {
       clearInterval(interval)
