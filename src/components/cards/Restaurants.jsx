@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardHeader, CardMedia, Divider, Typography, Avatar, Paper } from "@material-ui/core"
+import { Box, Card, CardContent, CardHeader, CardMedia, Divider, Typography, Avatar, Paper, Button, Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core"
 import { Rating } from "@material-ui/lab"
 import HotelImageCarousel from "./HotelImageCarousel"
@@ -7,20 +7,20 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
-    maxWidth: "45vh"
+    maxWidth: "45vh",
   },
   card: {
-    border: "none",
+    boxShadow: "none",
     maxWidth: "40vw",
   },
   photo: {
     paddingTop: "56.25%"
   },
-  content: {
-    textAlign: "left",
-  },
   rating: {
     padding: 10,
+  },
+  grid: {
+    flexWrap: "nowrap"
   }
 }))
 
@@ -31,23 +31,51 @@ const Restaurants = ({ data }) => {
   const photoURL = "https://media-cdn.tripadvisor.com/media/photo-s/0d/53/95/c9/getlstd-property-photo.jpg"
   console.log(restaurants)
   return (
-    <Paper className={classes.wrapper}>
+    <Card className={classes.wrapper}>
       <Carousel showThumbs={false}>
         {restaurants.map((restaurant) => {
           const { name, address, cuisine, price_level, rating, tripAdvisorLink, photo } = restaurant
           return (
-            <Paper square className={classes.card}>
+            <Card square className={classes.card}>
               <CardMedia className={classes.photo} image={photo} />
               <CardHeader
                 title={name}
                 subheader={address}
+                action={
+                  <Rating
+                    className={classes.rating}
+                    name="read-only"
+                    value={parseFloat(rating)}
+                    readOnly
+                  />
+                }
               />
-            </Paper>        
+              <Divider variant="middle" />
+              <CardContent className={classes.content}>
+                <Grid className={classes.grid} container direction="row">
+                  <Grid item xs={12}>
+                    <Typography gutterBottom variant="body1">
+                      {`Cuisine: ${cuisine.join(", ")}`}
+                    </Typography>
+                    <Typography variant="body1">
+                      {`Price: ${price_level}`}
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Button
+                      display="inline"
+                      variant="contained"
+                      href={tripAdvisorLink} 
+                      color="primary"
+                    >See on Trip Advisor</Button>
+                  </Grid>
+                </Grid>
+              </CardContent>
+            </Card>        
           )
         })}
       </Carousel>
-    </Paper>
-
+    </Card>
   )
 }
 
