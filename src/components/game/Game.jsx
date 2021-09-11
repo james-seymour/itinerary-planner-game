@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Car from './Car'
+import Background from './Background'
 
 class Game extends Component {
 
@@ -34,25 +35,14 @@ class Game extends Component {
     console.log(this.state.playerVel)
   }
 
-  componentDidMount() {
-    
-  }
-
-  update() {
-    
-  }
-
   render() {
     return <div
-            onKeyDown={this.onKeyDown}
             tabIndex="0">
             <Car />
+            <Background />
           </div>
   }
 
-  moveCar() {
-    
-  }
 }
 
 export default Game

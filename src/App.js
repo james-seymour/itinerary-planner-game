@@ -69,9 +69,9 @@ function App() {
           <Route exact path="/testing">
           </Route>
           <Route exact path="/game">
-            <Info visibility={visibility} APIData={APIData}/>
+
             {/* setVibility gets passed in here for Game to update */}
-            <Car setVisibility={setVisibility} />
+            <Game setVisibility={setVisibility} />
           </Route>
         </Switch>
       </Router>
@@ -81,3 +81,4 @@ function App() {
 }
 
 export default App;
+//<Info visibility={visibility} APIData={APIData}/>
