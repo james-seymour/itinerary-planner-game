@@ -1,42 +1,13 @@
 import useCar from "./useCar"
 import { useWindowDimensions } from "./useWindowSize"
 import Canvas from "./Canvas"
-import { makeStyles } from "@material-ui/core"
 import backgroundImage from "./img/backgroundtest.jpg"
 
-const Car = () => {
+const Game = ({ classes }) => {
   const { car, canvasRef } = useCar()
   const { windowHeight, windowWidth } = useWindowDimensions()
-    
+  console.log(classes) 
   
-  const useStyles = makeStyles((theme) => ({
-    canvas: {
-      position: "absolute",
-      top: 0,
-      left: 0,
-    },
-    scene: {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-    },
-    car: {
-      width: 1000,
-      height: "100vh",
-      position: "absolute",
-      backgroundSize: "contain",
-      willChange: "transform",
-    },
-    image: {
-      willChange: "transform",
-      height: "97vh",
-    }
-  }))
-
-  const classes = useStyles()
-
   const Scene = ({ car, dimensions }) => {
 
 
@@ -58,6 +29,7 @@ const Car = () => {
       <Canvas 
         canvasRef={canvasRef}
         className={classes.canvas}
+        classes={classes}
         width={windowWidth || 500}
         height={windowHeight || 500}
       />
@@ -69,4 +41,4 @@ const Car = () => {
   )
 }
 
-export default Car
+export default Game

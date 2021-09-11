@@ -8,6 +8,7 @@ import { Box, makeStyles } from '@material-ui/core'
 
 
 const Info = ({ visibility, APIData }) => {
+  console.log("Rerendering")
   
   const useStyles = makeStyles((theme) => ({
   position: {
