@@ -100,7 +100,6 @@ const useCar = () => {
       window.addEventListener("resize", handleResize)
       update()
       
-
     }, 1000 / 60)
     
     return function cleanup() {

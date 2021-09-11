@@ -17,26 +17,29 @@ const showCards = (carPosition, visibility, setVisibility, viewWidth) => {
   // } else if (carPosition > 1000 && visibility.flights) {
   //   setVisibility.flights(false)
   // }
-  console.log(carPosition)
-  const hotelsLowerBound = 39 * viewWidth
-  const hotelsUpperBound = 55 * viewWidth
+  const hotelsLowerBound = 40
+  const hotelsUpperBound = 55
   if (carPosition > hotelsLowerBound && carPosition < hotelsUpperBound && !visibility.hotels) {
     setVisibility.hotels(true)
   } else if (carPosition < hotelsLowerBound || carPosition > hotelsUpperBound && visibility.hotels) {
     setVisibility.hotels(false)
   }
 
-  if (carPosition > 1600 && carPosition < 2100 && !visibility.restaurants) {
+  const restaurantsLowerBound = 65
+  const restaurantsUpperBound = 80
+  if (carPosition > restaurantsLowerBound && carPosition < restaurantsUpperBound && !visibility.restaurants) {
     setVisibility.restaurants(true)
-  } else if (carPosition < 1600 || carPosition > 2100 && visibility.restaurants) {
+  } else if (carPosition < restaurantsLowerBound || carPosition > restaurantsUpperBound && visibility.restaurants) {
     setVisibility.restaurants(false)
   }
- 
-  // if (carPosition < 1000 && !visibility.weather) {
-  //   setVisibility.weather(true)
-  // } else if (carPosition > 1000 && visibility.weather) {
-  //   setVisibility.weather(false)
-  // }
+  
+  const weatherLowerBound = 90
+  const weatherUpperBound = 105
+  if (carPosition > weatherLowerBound &&  carPosition < weatherUpperBound && !visibility.weather) {
+    setVisibility.weather(true)
+  } else if (carPosition < weatherLowerBound || carPosition > weatherUpperBound && visibility.weather) {
+    setVisibility.weather(false)
+  }
 
 }
 
@@ -45,7 +48,7 @@ const Game = ({ visibility, setVisibility, classes }) => {
   const { windowHeight, windowWidth } = useWindowDimensions()
 
   const viewWidth = window.innerWidth / 100
-  showCards(Math.abs(car.x), visibility, setVisibility, viewWidth)
+  showCards(Math.abs(car.x)/viewWidth, visibility, setVisibility, viewWidth)
 
   const Scene = ({ car, dimensions }) => {
 

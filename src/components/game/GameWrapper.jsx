@@ -20,7 +20,6 @@ const GameWrapper = ({ visibility, setVisibility }) => {
       bottom: 0,
     },
     car: {
-      width: 1000,
       height: "100vh",
       position: "absolute",
       backgroundSize: "contain",
