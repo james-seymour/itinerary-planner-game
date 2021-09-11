@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState,useEffect } from "react"
 import useKeys from "./useKeys"
 import { useWindowDimensions } from "./useWindowSize"
 
@@ -12,11 +12,11 @@ const useCar = () => {
   const { windowWidth, windowHeight } = useWindowDimensions()
 
   
-  const powerFactor = 1
-  const maxPower = 10
-  const reverseFactor = 1
+  const powerFactor = 1.8
+  const maxPower = 20
+  const reverseFactor = 0.5
   const maxReverse = 10
-  const drag = 1
+  const drag = 0.05
 
   let initialCar = {
     styles: "",
@@ -76,7 +76,7 @@ const useCar = () => {
   }
 
   const update = () => {
-    driveCar({ ...car })
+    driveCar(car)
   }
 
   useEffect(() => {
@@ -100,10 +100,12 @@ const useCar = () => {
       window.addEventListener("resize", handleResize)
       update()
       
-      return function cleanup() {
-        clearInterval(interval)
-      }
-    })
+
+    }, 1000 / 60)
+    
+    return function cleanup() {
+      clearInterval(interval)
+    }
   }, [car])
 
   return { car: car, canvasRef }

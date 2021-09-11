@@ -2,6 +2,7 @@ import useCar from "./useCar"
 import { useWindowDimensions } from "./useWindowSize"
 import Canvas from "./Canvas"
 import { makeStyles } from "@material-ui/core"
+import backgroundImage from "./img/backgroundtest.jpg"
 
 const Car = () => {
   const { car, canvasRef } = useCar()
@@ -20,16 +21,32 @@ const Car = () => {
       left: 0,
       right: 0,
       bottom: 0,
+    },
+    car: {
+      width: 1000,
+      height: 1000,
+      position: "absolute",
+      backgroundSize: "contain",
+      willChange: "transform",
+    },
+    image: {
+      willChange: "transform"
     }
   }))
 
   const classes = useStyles()
 
   const Scene = ({ car, dimensions }) => {
+
+
+    // const moreClasses = useMoreStyles()
+
     return (
       <>
         <div className={classes.scene}>
-          <div style={{ transform: car.styles }}></div>
+          <div className={classes.car}>
+            <img style={{ transform: car.styles }} src={backgroundImage}></img>
+          </div>
         </div>
       </>
     )
