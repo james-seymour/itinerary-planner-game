@@ -6,8 +6,8 @@ import { createTheme } from '@material-ui/core/styles';
 import { orange, blue } from '@material-ui/core/colors';
 import Game from "./components/game/Game"
 import InputFormHandler from './components/input/InputFormHandler';
-import Info from '../../material-ui-testing/pages/Info';
-import NewCar from './components/game/NewCar';
+import Info from "./pages/Info";
+import Car from './components/game/Car';
 
 
 const theme = createTheme({
@@ -71,8 +71,7 @@ function App() {
           <Route exact path="/game">
             <Info visibility={visibility} APIData={APIData}/>
             {/* setVibility gets passed in here for Game to update */}
-            <NewCar />
-            <Game APIData={APIData}/>
+            <Car setVisibility={setVisibility} />
           </Route>
         </Switch>
       </Router>

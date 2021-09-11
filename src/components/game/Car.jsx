@@ -1,29 +1,49 @@
+import { useState, useEffect } from "react"
 import { makeStyles } from '@material-ui/core'
-import React from 'react'
 
-const useStyles = makeStyles((theme) => ({
-  rectangle: {
-    width: 100,
-    height: 100,
-    position: 'absolute',
-    backgroundColor: theme.palette.primary.main
-  },
 
-  circle: {
-    width: 100,
-    height: 100,
-    position: 'absolute',
-    backgroundColor: theme.palette.primary.main,
-    borderRadius: '100%'
+
+
+const Car = (props) => {
+
+  const [pos, setPos] = useState(100)
+  const [vel, setVel] = useState(0)
+  const [acc, setAcc] = useState(0)
+  const [tick, setTick] = useState(0)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTick(prevState => prevState + 1)
+      move()
+    }, 1000)
+  }, [tick])
+  
+  const useStyles = makeStyles((theme) => ({
+    car: {
+      width: 300,
+      height: 300,
+      backgroundColor: "red",
+      position: "absolute",
+      top: 500,
+      left: pos,
+    }
+  }))
+
+  const move = () => {
+    console.log("moving")
   }
-}))
 
-function Car() {
   const classes = useStyles()
-  return <>
-      <div className={classes.rectangle}></div>
-      <div className={classes.circle}></div>
+
+  return (
+    <>
+    <button onClick={move}>Move</button>
+    <div className={classes.car}>
+      
+    </div>
     </>
+  )
 }
 
 export default Car
+ 
