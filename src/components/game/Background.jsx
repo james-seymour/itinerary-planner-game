@@ -26,6 +26,10 @@ const Background = (props) => {
       move(1)
     }
   }
+
+  useEffect(() => {
+    document.getElementById("background").focus()
+  }, [])
   
   const useStyles = makeStyles((theme) => ({
     background: {
@@ -47,11 +51,15 @@ const Background = (props) => {
 
   const classes = useStyles()
 
-  return <img src={background} 
-            className={classes.background} 
-            onKeyDown={keyPressed} 
-            tabIndex="0"
-            />;
+  return (
+    <img
+      id="background"
+      src={background} 
+      className={classes.background} 
+      onKeyDown={keyPressed} 
+      tabIndex="0"
+    />
+  )
 }
 
 export default Background
