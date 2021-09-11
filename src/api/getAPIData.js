@@ -18,12 +18,12 @@ const getAPIData = (values, APIData, redirects) => {
     // Here, we save the lat, long of the destination in the APIData ref to use later 
     Object.assign(APIData, { latitude: latitude, longitude: longitude })
     // Now that we have this lat, long, we can call all of the three APIs
-    getRestaurantAttractionData(values, APIData, redirects.travel)
-    // getHotelsData(values, APIData, redirects.hotels)
+    // getRestaurantAttractionData(values, APIData, redirects.travel)
+    getHotelsData(values, APIData, redirects.hotels)
     // getWeatherData(values, APIData, redirects.weather)
-    // redirects.travel(true)
+    redirects.travel(true)
     redirects.weather(true)
-    redirects.hotels(true)
+    // redirects.hotels(true)
   })
 
 }
