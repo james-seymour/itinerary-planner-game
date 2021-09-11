@@ -21,10 +21,10 @@ const Background = (props) => {
     console.log(event)
 
     if (event.key === "a" || event.key === "ArrowLeft") { 
-      move(-1)
+      move(1)
     }
     if (event.key === "d" || event.key === "ArrowRight") { 
-      move(1)
+      move(-1)
     }
   }
   
