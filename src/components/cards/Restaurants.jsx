@@ -34,7 +34,6 @@ const Restaurants = ({ posx, posy, visible, data }) => {
   const { destination, restaurants } = data
   const classes = useStyles()
 
-  console.log(restaurants)
   return (
     <Collapse className={classes.collapse} in={visible}>
     <Card className={classes.wrapper}>

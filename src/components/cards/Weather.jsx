@@ -29,7 +29,6 @@ const YAxisLabel = ({ kapi, metric, viewBox}) => {
 
 const Weather = ({ posx, posy, visible, data }) => {
   const { destination, weatherCondition, weatherHistory } = data
-  console.log(weatherCondition, weatherHistory)
 
   const useStyles = makeStyles((theme) => ({
     collapse: {

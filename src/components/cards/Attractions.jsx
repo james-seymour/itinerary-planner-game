@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardHeader, CardMedia, Divider, Typography, Collapse, Paper, Button, Grid } from "@material-ui/core"
+import { Card, CardContent, CardHeader, CardMedia, Divider, Typography, Collapse, Paper, Button, Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core"
 import { Rating } from "@material-ui/lab"
 import { Carousel } from "react-responsive-carousel"
@@ -32,7 +32,6 @@ const Attractions = ({ posx, posy, visible, data }) => {
   }))
 
   const { destination, attractions } = data
-  console.log(attractions)
 
   const classes = useStyles()
   return (

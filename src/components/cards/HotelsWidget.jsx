@@ -1,7 +1,6 @@
 
 const HotelsWidget = ({ data }) => {
   const { destination, startDateString, endDateString } = data
-  console.log(destination, startDateString, endDateString)
   return (
     <div
       data-skyscanner-widget="HotelSearchWidget"
