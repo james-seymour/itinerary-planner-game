@@ -3,9 +3,11 @@ import { Redirect } from "react-router-dom"
 import InputForm from "./InputForm"
 import { createBrowserHistory } from "history"
 import filterInputData from "../../tools/filterInputData"
+import filterAPIData from "../../tools/filterAPIData"
 import getAPIData from "../../api/getAPIData"
+import tokyoResponse from "../../api/sample_responses/tokyoResponse"
 
-const InputFormHandler = (props) => {
+const InputFormHandler = ({ APIData }) => {
 
   const [travelAdvisorRedirect, setTravelAdvisorRedirect] = useState(false)
   const [hotelsRedirect, setHotelsRedirect] = useState(false)
@@ -19,15 +21,21 @@ const InputFormHandler = (props) => {
   const handleFormSubmitted = (values) => {
 
 
-    const parsedValues = filterInputData(values)
-    getAPIData(parsedValues, props.APIData.current, redirects)
+    const parsedValuesIn = filterInputData(values)
+    // getAPIData(parsedValuesIn, APIData.current, redirects)
+    // Have this for testing so we dont have to call an API each time we wanna get data
+    // THis is the response we get from the API saved to file
+    Object.assign(APIData, tokyoResponse)
+
     // Parent callback function to handle values before redirecting
-    // TODO: GET API DATA HERE
-    // console.log(getTravelLocationOptions("tokyo"))
+    setTravelAdvisorRedirect(true)
+    setHotelsRedirect(true)
+    setWeatherRedirect(true)
   }
 
   const allAPISLoaded = travelAdvisorRedirect && hotelsRedirect && weatherRedirect
   if (allAPISLoaded) {
+    filterAPIData(APIData.current)
     createBrowserHistory().push("/")
     return <Redirect to="/game" />
   }
