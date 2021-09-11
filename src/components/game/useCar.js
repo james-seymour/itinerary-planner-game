@@ -12,10 +12,10 @@ const useCar = () => {
   const { windowWidth, windowHeight } = useWindowDimensions()
 
   
-  const powerFactor = 1.8
-  const maxPower = 20
-  const reverseFactor = 0.5
-  const maxReverse = 10
+  const powerFactor = 0.5
+  const maxPower = 10
+  const reverseFactor = 1.8
+  const maxReverse = 20
   const drag = 0.05
 
   let initialCar = {
@@ -101,7 +101,7 @@ const useCar = () => {
       update()
       
 
-    }, 1000 / 100)
+    }, 3000)
     
     return function cleanup() {
       clearInterval(interval)

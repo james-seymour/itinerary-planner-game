@@ -6,10 +6,8 @@ import backgroundImage from "./img/backgroundtest.jpg"
 const Game = ({ classes }) => {
   const { car, canvasRef } = useCar()
   const { windowHeight, windowWidth } = useWindowDimensions()
-  console.log(classes) 
   
   const Scene = ({ car, dimensions }) => {
-
 
     // const moreClasses = useMoreStyles()
 
