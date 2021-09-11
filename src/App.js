@@ -6,6 +6,7 @@ import { createTheme } from '@material-ui/core/styles';
 import { orange, blue } from '@material-ui/core/colors';
 import Game from "./components/game/Game"
 import InputFormHandler from './components/input/InputFormHandler';
+import Info from './pages/Info';
 
 
 const theme = createTheme({
@@ -39,6 +40,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <InputFormHandler APIData={APIData}/>
+          </Route>
+          <Route exact path="/testing">
+            <Info APIData={APIData}/>
           </Route>
           <Route exact path="/game">
             <Game APIData={APIData}/>

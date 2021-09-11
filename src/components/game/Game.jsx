@@ -13,7 +13,6 @@ function Box() {
 
 function Game({ APIData }) {
 
-
   // saveJSON(props.APIData, "tokyoReponse")
   console.log(APIData.current)
   return (

@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom"
 import InputForm from "./InputForm"
 import { createBrowserHistory } from "history"
 import filterInputData from "../../tools/filterInputData"
-import filterAPIData from "../../tools/filterAPIData"
 import getAPIData from "../../api/getAPIData"
 import tokyoResponse from "../../api/sample_responses/tokyoResponse"
 
@@ -35,9 +34,8 @@ const InputFormHandler = ({ APIData }) => {
 
   const allAPISLoaded = travelAdvisorRedirect && hotelsRedirect && weatherRedirect
   if (allAPISLoaded) {
-    filterAPIData(APIData.current)
     createBrowserHistory().push("/")
-    return <Redirect to="/game" />
+    return <Redirect to="/testing" />
   }
   return (
     <InputForm submitForm={handleFormSubmitted}/> 

@@ -120,11 +120,10 @@ const filterWeatherCondition = (weatherConditions) => {
 }
 
 const filterHotels = (hotels) => {
-  hotels.map((hotel) => {
+  return hotels.map((hotel) => {
     if (hotel.errorMessage === undefined) {
-      return 
+      return hotel 
     }
-    return hotel
   })
 }
 
