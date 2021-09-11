@@ -1,19 +1,22 @@
 import React from 'react'
 import components from '../components/cards/components'
 import filterAPIData from '../tools/filterAPIData'
-
+import ScriptTag from "react-script-tag"
 
 const Info = ({ APIData }) => {
   const data = filterAPIData(APIData.current)
+  console.log(data)
 
-  const { Attractions, Flights, Hotels, Restaurants, Weather } = components
+  const { Attractions, Flights, Hotels, Restaurants, Weather, Map } = components
   return (
     <div>
-      <Attractions attractions={data.attractions}/>
-      <Flights />
-      <Hotels hotels={data.hotels}/>
-      <Restaurants restaurants={data.restaurants}/>
-      <Weather weatherCondition={data.weatherCondition} weatherHistory={data.weather}/>
+      <ScriptTag type="text/javascript" src="https://widgets.skyscanner.net/widget-server/js/loader.js" />
+      <Attractions data={data}/>
+      <Flights data={data} />
+      <Hotels data={data}/>
+      <Restaurants data={data}/>
+      <Weather data={data} />
+      <Map data={data}/>
     </div>
   )
 }

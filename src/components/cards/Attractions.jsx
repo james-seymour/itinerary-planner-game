@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Attractions = ({ attractions }) => {
-  console.log(attractions)
+const Attractions = ({ data }) => {
+  const { attractions } = data
   return (
     <div>
       

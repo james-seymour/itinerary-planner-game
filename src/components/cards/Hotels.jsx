@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Hotels = ({ hotels }) => {
-  console.log(hotels)
+const Hotels = ({ data }) => {
+  const { hotels } = data
   return (
     <div>
       

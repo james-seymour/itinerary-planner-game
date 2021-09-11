@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Restaurants = ({ restaurants }) => {
-  console.log(restaurants)
+const Restaurants = ({ data }) => {
+  const { restaurants } = data
   return (
     <div>
       

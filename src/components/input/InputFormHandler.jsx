@@ -25,6 +25,7 @@ const InputFormHandler = ({ APIData }) => {
     // Have this for testing so we dont have to call an API each time we wanna get data
     // THis is the response we get from the API saved to file
     Object.assign(APIData, tokyoResponse)
+    Object.assign(APIData.current, parsedValuesIn)
 
     // Parent callback function to handle values before redirecting
     setTravelAdvisorRedirect(true)

@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Weather = ({ weatherCondition, weatherHistory }) => {
-  console.log(weatherCondition, weatherHistory)
+const Weather = ({ data }) => {
+  const { weatherCondition, weatherHistory } = data
   return (
     <div>
       
