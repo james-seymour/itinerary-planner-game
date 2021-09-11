@@ -10,7 +10,7 @@ const InputForm = (props) => {
 
   const useStyles = makeStyles((theme) => ({
     card: {
-      maxWidth: "30vw",
+      maxWidth: "20vw",
       margin: "auto"
     },
     forminput: {
