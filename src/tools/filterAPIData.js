@@ -1,4 +1,4 @@
-
+import { format } from "date-fns"
 
 const filterRestaurants = (restaurants, priceLevel) => {
 
@@ -91,8 +91,9 @@ const filterAttractions = (attractions) => {
 const filterWeatherHistory = (weatherHistory) => {
   let filteredWeatherHistory = []
   for (let day of weatherHistory) {
+    const date = new Date(day.date)
     filteredWeatherHistory.push({
-      date: day.date,
+      date: format(date, "PP"),
       precip: day.prcp,
       snow: day.snow,
       averageTemp: day.tavg,
@@ -136,7 +137,7 @@ const filterAPIData = (APIData) => {
     hotels: filterHotels(APIData.hotels),
     restaurants: filterRestaurants(APIData.restaurants, APIData.priceLevel),
     attractions: filterAttractions(APIData.attractions),
-    weather: filterWeatherHistory(APIData.weatherHistory),
+    weatherHistory: filterWeatherHistory(APIData.weatherHistory),
     weatherCondition: filterWeatherCondition(APIData.weatherCondition),
   })
 }

@@ -1,10 +1,22 @@
 import React from 'react'
-import { Box, Card, CardHeader,  } from '@material-ui/core'
+import { Box, Card, CardHeader, Collapse, makeStyles } from '@material-ui/core'
 
-const Flights = ({ data }) => {
+
+
+const Flights = ({ posx, posy, visible, data }) => {
+  const useStyles = makeStyles((theme) => ({
+    collapse: {
+      position: "absolute",
+      top: posx,
+      left: posy,
+    },
+  }))
+
+  const classes = useStyles()
+
   const { destination, startDateString, endDateString } = data
   return (
-    <Box width={0.2} margin={4}>
+    <Collapse className={classes.collapse} in={visible}>
       <Card variant="outlined" >
         <CardHeader
           title={`Flights to ${destination}`}
@@ -25,7 +37,7 @@ const Flights = ({ data }) => {
           data-widget-padding="1rem"
         ></div>
       </Card>
-    </Box>
+    </Collapse>
   )
 }
 

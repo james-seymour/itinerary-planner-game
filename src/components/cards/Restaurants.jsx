@@ -1,37 +1,42 @@
-import { Box, Card, CardContent, CardHeader, CardMedia, Divider, Typography, Avatar, Paper, Button, Grid } from "@material-ui/core"
+import { Box, Card, CardContent, CardHeader, CardMedia, Divider, Typography, Collapse, Paper, Button, Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core"
 import { Rating } from "@material-ui/lab"
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
-const useStyles = makeStyles((theme) => ({
-  wrapper: {
-    width: "45vh",
-  },
-  card: {
-    boxShadow: "none",
-    maxWidth: "40vw",
-  },
-  photo: {
-    paddingTop: "56.25%"
-  },
-  rating: {
-    padding: 10,
-  },
-  content: {
-    textAlign: "left",
-  },
-  grid: {
-    flexWrap: "nowrap"
-  }
-}))
-
-const Restaurants = ({ data }) => {
+const Restaurants = ({ posx, posy, visible, data }) => {
+  const useStyles = makeStyles((theme) => ({
+    collapse: {
+      position: "absolute",
+      top: posx,
+      left: posy,
+    },
+    wrapper: {
+      width: "45vh",
+    },
+    card: {
+      boxShadow: "none",
+      maxWidth: "40vw",
+    },
+    photo: {
+      paddingTop: "56.25%"
+    },
+    rating: {
+      padding: 10,
+    },
+    content: {
+      textAlign: "left",
+    },
+    grid: {
+      flexWrap: "nowrap"
+    }
+  }))
   const { destination, restaurants } = data
   const classes = useStyles()
 
   console.log(restaurants)
   return (
+    <Collapse className={classes.collapse} in={visible}>
     <Card className={classes.wrapper}>
       <CardHeader title={`Restaurants in ${destination}`}/>
       <Carousel showThumbs={false}>
@@ -81,6 +86,7 @@ const Restaurants = ({ data }) => {
         })}
       </Carousel>
     </Card>
+    </Collapse>
   )
 }
 
