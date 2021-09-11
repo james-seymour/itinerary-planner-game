@@ -36,6 +36,7 @@ const filterRestaurants = (restaurants, priceLevel) => {
       photo: r.photo.images.medium.url,
       price_level: r.price_level,
       price_num: r.price_num,
+      distance: parseFloat(r.distance).toFixed(2),
       rating: r.rating,
       rankingPosition: r.ranking_position,
       address: r.address,
@@ -71,6 +72,8 @@ const filterAttractions = (attractions) => {
   for (let a of filteredAttractions) {
     attractionData.push({
       name: a.name,
+      distance: parseFloat(a.distance).toFixed(2),
+      awards: a.awards[0] !== undefined ? a.awards[0].display_name : "No Awards Found", 
       photo: a.photo.images.medium.url,
       rating: a.rating,
       rankingPosition: a.ranking_position,
