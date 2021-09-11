@@ -14,9 +14,20 @@ const Car = (props) => {
   useEffect(() => {
     setTimeout(() => {
       setTick(prevState => prevState + 1)
-      move()
     }, 1000)
   }, [tick])
+
+  const keyPressed = (event) => {
+    console.log("pressed")
+    console.log(event)
+
+    if (event.key === "a" || event.key === "ArrowLeft") { 
+      move(-10)
+    }
+    if (event.key === "d" || event.key === "ArrowRight") { 
+      move(10)
+    }
+  }
   
   const useStyles = makeStyles((theme) => ({
     car: {
@@ -29,17 +40,17 @@ const Car = (props) => {
     }
   }))
 
-  const move = () => {
-    console.log("moving")
+
+  const move = (value) => {
+    setPos(prevPos => prevPos + value)
   }
 
   const classes = useStyles()
 
   return (
     <>
-    <button onClick={move}>Move</button>
-    <div className={classes.car}>
-      
+    <div className={classes.car} onKeyDown={keyPressed} tabIndex="0">
+      Hello 
     </div>
     </>
   )
