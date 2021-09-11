@@ -5,11 +5,11 @@ import HotelImageCarousel from "./HotelImageCarousel"
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
-    width: "25vw",
+    width: "20vw",
     margin: "auto",
   },
   card: {
-    width: "25vw",
+    width: "20vw",
     margin: "auto",
   },
   photo: {

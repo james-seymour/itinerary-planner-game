@@ -16,11 +16,11 @@ const Hotels = ({ posx, posy, visible, data }) => {
       left: posy,
     },
     root: {
-      maxWidth: "30vw",
+      maxWidth: "25vw",
       margin: "auto",
     },
     wrapper: {
-      padding: "10rem",
+      padding: 10,
       width: "35vw",
       margin: "auto",
     },
@@ -29,7 +29,7 @@ const Hotels = ({ posx, posy, visible, data }) => {
     },
     card: {
       boxShadow: "none",
-      maxWidth: "35vw",
+      maxWidth: "25vw",
       margin: "auto",
     },
     photo: {
@@ -43,7 +43,8 @@ const Hotels = ({ posx, posy, visible, data }) => {
     },
     grid: {
       flexWrap: "nowrap"
-    }
+    },
+
   }))
   const { destination, hotels } = data
   const classes = useStyles()
@@ -66,7 +67,7 @@ const Hotels = ({ posx, posy, visible, data }) => {
       </Carousel>
       </CardContent>
       <Divider variant="middle" />
-      <Box p={4}>
+      <Box>
         <CardHeader 
           title="Couldn't find what you're looking for?"
           subheader="Search for hotels yourself below! (This might take a while to load)"

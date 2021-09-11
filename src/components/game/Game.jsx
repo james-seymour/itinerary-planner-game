@@ -6,17 +6,21 @@ import backgroundImage from "./img/backgroundtest.jpg"
 
 const showCards = (carPosition, visibility, setVisibility, viewWidth) => {
 
-  // if (carPosition < 1000 && !visibility.attractions) {
-  //   setVisibility.attractions(true)
-  // } else if (carPosition > 1000 && visibility.attractions) {
-  //   setVisibility.attractions(false)
-  // }
+  const attractionsLowerBound = 115
+  const attractionsUpperBound = 130
+  if (carPosition > attractionsLowerBound && carPosition < attractionsUpperBound && !visibility.attractions) {
+    setVisibility.attractions(true)
+  } else if (carPosition < attractionsLowerBound || carPosition > attractionsUpperBound && visibility.attractions) {
+    setVisibility.attractions(false)
+  }
 
-  // if (carPosition < 1000 && !visibility.flights) {
-  //   setVisibility.flights(true)
-  // } else if (carPosition > 1000 && visibility.flights) {
-  //   setVisibility.flights(false)
-  // }
+  const airportLowerBound = 145
+  const airportUpperBound = 160
+  if (carPosition > airportLowerBound && carPosition < airportUpperBound && !visibility.flights) {
+    setVisibility.flights(true)
+  } else if (carPosition < airportLowerBound || carPosition > airportUpperBound && visibility.flights) {
+    setVisibility.flights(false)
+  }
   const hotelsLowerBound = 40
   const hotelsUpperBound = 55
   if (carPosition > hotelsLowerBound && carPosition < hotelsUpperBound && !visibility.hotels) {
