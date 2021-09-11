@@ -13,7 +13,7 @@ const Currency = () => {
       component={TextField}
       name="currency"
       type="currency"
-      label="Choose a currency"
+      label="Currency"
       select
       margin="normal"
       InputLabelProps={{ shrink: true }}

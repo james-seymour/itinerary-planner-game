@@ -26,10 +26,10 @@ const Info = ({ APIData }) => {
     <div>
       <ScriptTag type="text/javascript" src="https://widgets.skyscanner.net/widget-server/js/loader.js" />
       {/* <Attractions posx={200} posy={200} visible={true} data={data}/> */}
-      {/* <Flights posx={200} posy={100} visible={true} data={data} /> */}
+      <Flights posx={200} posy={100} visible={true} data={data} />
       {/* <Hotels posx={100} posy={100} visible={true} data={data}/> */}
       {/* <Restaurants posx={100} posy={100} visible={true} data={data}/> */}
-      <Weather posx={100} posy={100} visible={true} data={data} />
+      {/* <Weather posx={100} posy={100} visible={true} data={data} /> */}
       {/* <Map data={data}/> */}
     </div>
   )
