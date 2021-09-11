@@ -13,8 +13,8 @@ const Info = ({ APIData }) => {
       <ScriptTag type="text/javascript" src="https://widgets.skyscanner.net/widget-server/js/loader.js" />
       {/* <Attractions data={data}/> */}
       {/* <Flights data={data} /> */}
-      <Hotel data={data}/>
-      {/* <Restaurants data={data}/> */}
+      {/* <Hotel data={data}/> */}
+      <Restaurants data={data}/>
       {/* <Weather data={data} /> */}
       {/* <Map data={data}/> */}
     </div>

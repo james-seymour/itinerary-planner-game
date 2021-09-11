@@ -33,7 +33,7 @@ const filterRestaurants = (restaurants, priceLevel) => {
     restaurantData.push({
       name: r.name,
       // TODO: check photo size and specify here
-      // photo: r.photo.fiosjkdof
+      photo: r.photo.images.medium.url,
       price_level: r.price_level,
       price_num: r.price_num,
       rating: r.rating,
@@ -71,7 +71,7 @@ const filterAttractions = (attractions) => {
   for (let a of filteredAttractions) {
     attractionData.push({
       name: a.name,
-      // photo: aposkd
+      photo: a.photo.images.medium.url,
       rating: a.rating,
       rankingPosition: a.ranking_position,
       address: a.address,

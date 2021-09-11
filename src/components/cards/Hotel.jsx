@@ -59,6 +59,7 @@ const Hotel = ({ data }) => {
       </CardMedia>
       <CardHeader 
         title={hotelName}
+        subheader={address}
         action={
           <Rating 
             className={classes.rating}
@@ -71,7 +72,7 @@ const Hotel = ({ data }) => {
       <Divider variant="middle"/>
       <CardContent className={classes.content}>
         <Typography gutterBottom variant="body1" component="h2">
-          {`${address} - ${price}/night`}
+          {`${price}/night`}
         </Typography>
         <Typography variant="body2">
           {checkIn}
