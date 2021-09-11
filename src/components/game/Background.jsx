@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { makeStyles } from '@material-ui/core'
 import background from './img/backgroundtest.jpg'
+import { auto } from "async"
 
 const Background = (props) => {
 
@@ -27,10 +28,22 @@ const Background = (props) => {
     }
   }
   
+  const slowDown = (event) => {
+    if (vel !== 0) {
+      if (vel > 0) {
+        setVel(prevVel => prevVel - 1);
+      } else {
+        setVel(prevVel => prevVel + 1);
+      }
+    }
+  }
+
   const useStyles = makeStyles((theme) => ({
     background: {
       position: "absolute",
-      top: 0,
+      height: 500,
+      width: auto,
+      top: 130,
       left: pos,
     }
   }))
@@ -50,6 +63,7 @@ const Background = (props) => {
   return <img src={background} 
             className={classes.background} 
             onKeyDown={keyPressed} 
+            onKeyUp={slowDown}
             tabIndex="0"
             />;
 }
