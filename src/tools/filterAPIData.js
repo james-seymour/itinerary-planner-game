@@ -1,4 +1,4 @@
-import { format } from "date-fns"
+import { format, add } from "date-fns"
 
 const filterRestaurants = (restaurants, priceLevel) => {
 
@@ -93,7 +93,7 @@ const filterWeatherHistory = (weatherHistory) => {
   for (let day of weatherHistory) {
     const date = new Date(day.date)
     filteredWeatherHistory.push({
-      date: format(date, "PP"),
+      date: format(add(date, {years: 1}), "PP"),
       precip: day.prcp,
       snow: day.snow,
       averageTemp: day.tavg,

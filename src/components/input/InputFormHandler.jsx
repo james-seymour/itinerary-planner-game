@@ -5,8 +5,24 @@ import { createBrowserHistory } from "history"
 import filterInputData from "../../tools/filterInputData"
 import getAPIData from "../../api/getAPIData"
 import tokyoResponse from "../../api/sample_responses/tokyoResponse"
+import { Button, makeStyles } from "@material-ui/core"
 
 const InputFormHandler = ({ APIData }) => {
+  
+  const useStyles = makeStyles((theme) => ({
+    background: {
+      backgroundColor: theme.palette.secondary.main,
+      width: "100%",
+      height: "100%",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      left: 0,
+    }
+  }))
+  const classes = useStyles()
+
 
   const [travelAdvisorRedirect, setTravelAdvisorRedirect] = useState(false)
   const [hotelsRedirect, setHotelsRedirect] = useState(false)
@@ -17,20 +33,23 @@ const InputFormHandler = ({ APIData }) => {
     weather: setWeatherRedirect,
   }
 
-  const handleFormSubmitted = (values) => {
+  const handleFormSubmitted = (values, example) => {
 
 
-    const parsedValuesIn = filterInputData(values)
-    // getAPIData(parsedValuesIn, APIData.current, redirects)
-    // Have this for testing so we dont have to call an API each time we wanna get data
-    // THis is the response we get from the API saved to file
-    Object.assign(APIData, tokyoResponse)
-    Object.assign(APIData.current, parsedValuesIn)
+    if (example) {
+      Object.assign(APIData, tokyoResponse)
+      APIData.current.destination = "Tokyo"
+      APIData.current.startDateString = "2022-01-01"
+      APIData.current.endDateString = "2022-01-15"
+      setTravelAdvisorRedirect(true)
+      setHotelsRedirect(true)
+      setWeatherRedirect(true)
+    } else {
+      const parsedValuesIn = filterInputData(values)
+      Object.assign(APIData.current, parsedValuesIn)
+      // getAPIData(parsedValuesIn, APIData.current, redirects)
+    }
 
-    // Parent callback function to handle values before redirecting
-    setTravelAdvisorRedirect(true)
-    setHotelsRedirect(true)
-    setWeatherRedirect(true)
   }
 
   const allAPISLoaded = travelAdvisorRedirect && hotelsRedirect && weatherRedirect
@@ -39,7 +58,10 @@ const InputFormHandler = ({ APIData }) => {
     return <Redirect to="/game" />
   }
   return (
-    <InputForm submitForm={handleFormSubmitted}/> 
+    <>
+      <div id="fullscreen" className={classes.background}></div>
+      <InputForm submitForm={handleFormSubmitted}/>
+    </> 
   )
 }
 

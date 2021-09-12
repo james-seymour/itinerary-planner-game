@@ -4,11 +4,10 @@ import { useWindowDimensions } from "./useWindowSize"
 
 
 
-
+// { powerFactor, maxPower, reverseFactor, maxReverse  }
 const useCar = () => {
 
   const canvasRef = useRef(null)
-  const [context, setContext] = useState(null)
   const { windowWidth, windowHeight } = useWindowDimensions()
 
   
@@ -16,7 +15,7 @@ const useCar = () => {
   const maxPower = 10
   const reverseFactor = 1.8
   const maxReverse = 20
-  const drag = 0.05
+  const drag = 0.002
 
   let initialCar = {
     styles: "",
@@ -38,8 +37,8 @@ const useCar = () => {
   }
 
   const driveCar = (car) => {
-    const pressingLeft = keyActive("left")
-    const pressingRight = keyActive("right")
+    const pressingLeft = keyActive("right")
+    const pressingRight = keyActive("left")
 
     if (car.isThrottling !== pressingRight || car.isReversing !== pressingLeft) {
       car.isThrottling = pressingRight;
@@ -52,15 +51,15 @@ const useCar = () => {
   const updateCar = (car) => {
     
     if (car.isThrottling) {
-      car.power += powerFactor * car.isThrottling
+      car.power += powerFactor 
     } else {
-      car.power -= powerFactor / 2
+      car.power -= powerFactor 
     }
 
     if (car.isReversing) {
-      car.reverse += reverseFactor
+      car.reverse += reverseFactor * car.isReversing
     } else {
-      car.reverse -= reverseFactor
+      car.reverse -= reverseFactor / 2
     }
 
     car.power = Math.max(0, Math.min(maxPower, car.power));

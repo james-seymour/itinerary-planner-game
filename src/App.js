@@ -13,10 +13,10 @@ import GameWrapper from './components/game/GameWrapper';
 const theme = createTheme({
   palette: {
     primary: {
-      main: orange[500]
+      main: orange[400]
     },
     secondary: {
-      main: blue[500]
+      main: blue[50]
     }
   },
   typography: {

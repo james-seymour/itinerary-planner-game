@@ -4,15 +4,15 @@ import { useRef, useEffect, useState, useCallback } from "react"
 const arrowKeys = {
   up: 38,
   down: 40,
-  left: 39,
-  right: 37,
+  left: 37,
+  right: 39,
 }
 
 const arrowKeysReverse = {
   38: "up",
   40: "down",
-  39: "left",
-  37: "right",
+  37: "left",
+  39: "right",
 }
 
 const useKeys = () => {

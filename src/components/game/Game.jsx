@@ -2,6 +2,7 @@ import useCar from "./useCar"
 import { useWindowDimensions } from "./useWindowSize"
 import Canvas from "./Canvas"
 import backgroundImage from "./img/backgroundtest.jpg"
+import { useEffect, useState } from "react"
 
 
 const showCards = (carPosition, visibility, setVisibility, viewWidth) => {
@@ -48,6 +49,7 @@ const showCards = (carPosition, visibility, setVisibility, viewWidth) => {
 }
 
 const Game = ({ visibility, setVisibility, classes }) => {
+
   const { car, canvasRef } = useCar()
   const { windowHeight, windowWidth } = useWindowDimensions()
 

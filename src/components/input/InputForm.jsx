@@ -10,14 +10,21 @@ const InputForm = (props) => {
 
   const useStyles = makeStyles((theme) => ({
     card: {
-      maxWidth: "20vw",
-      margin: "auto"
+      position: "absolute",
+      marginTop: 100,
+      width: "20vw",
+      marginLeft: "40vw",
+      borderRadius: 10,
     },
     forminput: {
       textAlign: "center",
     }
 
   }))
+
+  const defaultSubmit = () => {
+    props.submitForm(undefined, true)
+  }
 
   const classes = useStyles()
 
@@ -36,17 +43,17 @@ const InputForm = (props) => {
       
         validate={(values) => {
           const errors = {}
-          // if (!values.destination) { errors.destination = "Destination Required" }
-          // if (!values.startDate || isBefore(values.startDate, new Date())) { errors.startDate = "Enter a valid starting date"}
-          // if (!values.endDate || isBefore(values.endDate, new Date())) {errors.endDate = "Enter a valid ending date"}
-          // if (isBefore(values.endDate, values.startDate) || isEqual(values.endDate, values.startDate)) {errors.endDate = "Enter a valid range of dates"}
-          // if (values.numberOfPeople < 1 || values.numberOfPeople > 4 || isInt(values.numberOfPeople)) {errors.numberOfPeople = "Enter a valid number of people (1-4)"}
+          if (!values.destination) { errors.destination = "Destination Required" }
+          if (!values.startDate || isBefore(values.startDate, new Date())) { errors.startDate = "Enter a valid starting date"}
+          if (!values.endDate || isBefore(values.endDate, new Date())) {errors.endDate = "Enter a valid ending date"}
+          if (isBefore(values.endDate, values.startDate) || isEqual(values.endDate, values.startDate)) {errors.endDate = "Enter a valid range of dates"}
+          if (values.numberOfPeople < 1 || values.numberOfPeople > 4 || isInt(values.numberOfPeople)) {errors.numberOfPeople = "Enter a valid number of people (1-4)"}
           return errors
         }}
 
         onSubmit={(values, {setSubmitting}) => {
           setSubmitting = false
-          props.submitForm(values)
+          props.submitForm(values, true)
         }}
       >
         {({submitForm, isSubmitting, touched, errors}) => (
@@ -81,7 +88,17 @@ const InputForm = (props) => {
                     color="primary"
                   > Submit! </Button>
                   </Box>
-                </Form>
+                  <Box className={classes.forminput} margin={4}>
+                  </Box>
+                </Form>                  
+                <Box className={classes.forminput} margin={4}>
+                  <Button
+                    variant="contained"
+                    disable={isSubmitting}
+                    onClick={defaultSubmit}
+                    color="primary"
+                  > See an example! </Button>
+                </Box>
               </MuiPickersUtilsProvider>
             </Collapse>
             {/* LOADING ANIMATION BELOW */}

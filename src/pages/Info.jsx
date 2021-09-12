@@ -8,7 +8,6 @@ import { Box, makeStyles } from '@material-ui/core'
 
 
 const Info = ({ visibility, APIData }) => {
-  console.log("Rerendering")
   
   const useStyles = makeStyles((theme) => ({
   position: {
@@ -20,7 +19,6 @@ const Info = ({ visibility, APIData }) => {
 
 
   const data = filterAPIData(APIData.current)
-  console.log(data)
   const classes = useStyles()
   const { Attractions, Flights, Hotels, Restaurants, Weather, Map, HotelsWidget } = components
   return (
@@ -30,7 +28,7 @@ const Info = ({ visibility, APIData }) => {
       <Flights posx={"5vh"} posy={"80vh"} visible={visibility.flights} data={data} />
       <Hotels posx={"2vw"} posy={"70vh"} visible={visibility.hotels} data={data}/>
       <Restaurants posx={"2vw"} posy={"70vh"} visible={visibility.restaurants} data={data}/>
-      <Weather posx={"5vw"} posy={"10vh"} visible={visibility.weather} data={data} />
+      <Weather posx={"5vw"} posy={"70vh"} visible={visibility.weather} data={data} />
       {/* <Map data={data}/> */}
     </div>
   )
